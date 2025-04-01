@@ -1,0 +1,5 @@
+Hadoop is a big data framework.
+Hadoop can store a vast of data.
+Hadoop processes big data.
+Hadoop can analyze vast data.
+Hadoop is easy.
