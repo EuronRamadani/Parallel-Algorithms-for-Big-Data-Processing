@@ -2,12 +2,60 @@
 
 This project implements a parallel MapReduce framework in Python, inspired by the Google MapReduce paper. It provides a simple yet powerful way to process large datasets in parallel using the MapReduce programming model.
 
+## Project Versions
+
+The project includes two implementations:
+
+### 1. Console Version
+
+Located in the `console-version/` directory, this implementation:
+
+- Provides command-line interface
+- Has no external dependencies
+- Outputs results directly to console
+- Perfect for scripting and automation
+
+### 2. Web Version
+
+Located in the `web-version/` directory, this implementation:
+
+- Provides a modern web interface
+- Allows file uploads through browser
+- Shows interactive results
+- Includes configurable worker count
+- Requires Flask and related dependencies
+
+## Getting Started
+
+### Console Version
+
+```bash
+cd console-version
+python examples.py small_text.txt
+```
+
+See `console-version/README.md` for more details.
+
+### Web Version
+
+```bash
+cd web-version
+pip install -r requirements.txt
+python app.py
+```
+
+Then open `http://localhost:5000` in your browser.
+See `web-version/README.md` for more details.
+
 ## Features
 
+Both versions include:
+
 - Parallel processing using Python's multiprocessing
-- Simple and efficient word count implementation
+- Efficient word count implementation
 - Support for custom map and reduce functions
-- Example implementation for word count on text files
+- Local aggregation in mappers to reduce communication overhead
+- Configurable number of worker processes
 
 ## Project Structure
 
