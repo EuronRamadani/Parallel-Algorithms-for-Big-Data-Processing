@@ -5,32 +5,23 @@ This project implements a parallel MapReduce framework in Python, inspired by th
 ## Features
 
 - Parallel processing using Python's multiprocessing
-- Automatic chunk size estimation based on available memory
-- Local aggregation in mappers to reduce communication overhead
-- Adaptive partitioning for balanced workload distribution
+- Simple and efficient word count implementation
 - Support for custom map and reduce functions
-- Example implementations for word count and matrix multiplication
+- Example implementation for word count on text files
 
 ## Project Structure
 
 - `mapreduce.py`: Core MapReduce implementation
-- `utils.py`: Helper functions for sampling and partitioning
-- `examples.py`: Example MapReduce jobs and test cases
+- `examples.py`: Example word count implementation
+- Text files for testing:
+  - `small_text.txt`: Small sample text file
+  - `medium_text.txt`: Medium sample text file
+  - `large_text.txt`: Large sample text file
 
 ## Requirements
 
 - Python 3.6+
-- numpy
-- cloudpickle
-- psutil
-- tqdm
-- requests (for example that downloads Moby Dick)
-
-Install dependencies:
-
-```bash
-pip install numpy cloudpickle psutil tqdm requests
-```
+- No external dependencies required
 
 ## Usage
 
@@ -59,25 +50,36 @@ mapreduce = ParallelMapReduce(n_workers=4)
 result = mapreduce.execute(dataset, map_func, reduce_func)
 ```
 
-## Examples
+## Running the Word Count Example
 
-The project includes several example MapReduce jobs:
-
-1. Word Count: Count word frequencies in text documents
-2. Matrix Multiplication: Multiply large matrices in parallel
-
-Run the examples:
+The project includes a word count example that can be run on any text file. To run it:
 
 ```bash
-python examples.py
+python examples.py [input_file]
 ```
+
+If no input file is specified, it will default to using 'input.txt'.
+
+Example usage:
+
+```bash
+# Run on small text file
+python examples.py small_text.txt
+
+# Run on medium text file
+python examples.py medium_text.txt
+
+# Run on large text file
+python examples.py large_text.txt
+```
+
+The output will show the word count for each word in the text file, sorted alphabetically.
 
 ## Performance Considerations
 
-- The framework automatically estimates optimal chunk sizes based on available memory
-- Local aggregation in mappers reduces communication overhead
-- Adaptive partitioning helps balance workload across workers
+- The framework uses multiprocessing for parallel execution
 - Number of workers defaults to (CPU count - 1) but can be customized
+- The implementation includes local aggregation in mappers to reduce communication overhead
 
 ## License
 
